@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bankist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <h1 class="accountname">Log in to get started</h1>
+      <img src="./logo.png" alt="logo" class="logo" />
+
+      <div class="login">
+        <input type="text" placeholder="user" class="nav-input user" />
+
+        <input
+          type="password"
+          placeholder="pin"
+          maxlength="4"
+          class="nav-input pin"
+        />
+        <button class="navbtn">➜</button>
+      </div>
+    </nav>
+
+    <main id="main">
+      <div class="current-balance">
+        <div class="sample">
+          <h1>current balance</h1>
+          <div class="date">as of 05/10/2021</div>
+        </div>
+        <div>
+          <h1 class="balance">0000$</h1>
+        </div>
+      </div>
+      <div class="main">
+        <div class="display"></div>
+        <div class="transfer">
+          <h3>Transfer money</h3>
+          <div class="transfer-inner">
+            <input type="text" class="inner-tran input transfer-to" />
+            <input type="text" class="inner-tran input transfer-amount" />
+            <button class="inner-tran transbtn">➜</button>
+            <h5>transfer to</h5>
+            <h5>amount</h5>
+          </div>
+        </div>
+        <div class="request">
+          <h3>request loan</h3>
+          <div class="inner-loan">
+            <input type="text" class="loan" />
+            <button class="loanbtn">➜</button>
+            <h5>Amount</h5>
+          </div>
+        </div>
+        <div class="delete">
+          <h3>close account</h3>
+          <div class="delete-inner">
+            <input type="text" class="inner-del input del-account" />
+            <input type="text" class="inner-del input del-pin" />
+            <button class="inner-del delbtn">➜</button>
+            <h5>confirm user</h5>
+            <h5>pin</h5>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="in-out">
+          <p>in</p>
+          <h2 style="color: #9be15d" class="in">0000$</h2>
+
+          &emsp;
+          <p>out</p>
+          <h2 style="color: #e52a5a" class="out">0000$</h2>
+
+          &emsp;
+          <p>intreset</p>
+          <h2 style="color: #9be15d" class="intrest">0000$</h2>
+        </div>
+        <div class="sort">↓SORT</div>
+        <div class="timer">
+          <h5>you will be logged out in <span class="time"></span></h5>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

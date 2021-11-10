@@ -1,0 +1,80 @@
+* {
+  font-family: "Press Start 2P", cursive;
+}
+
+body {
+  /* margin: 10px; */
+
+  background-color: rgba(0, 0, 0, 0.884);
+  color: white;
+}
+.top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+.center {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.result {
+  color: black;
+  font-size: 100px;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+}
+.again {
+  height: 10vh;
+  width: 30vw;
+}
+hr {
+  z-index: -1;
+  transform: translateY(-85px);
+  background-color: white;
+  width: 100vw;
+  height: 10px;
+}
+
+input {
+  width: 200px;
+  height: 80px;
+  background-color: black;
+  color: white;
+  font-size: 50px;
+  border: 4px white solid;
+}
+.input-button {
+  /* border: 2px red solid; */
+  width: 180px;
+  height: 60px;
+}
+.game {
+  margin: 20px;
+  /* width: 100vw; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 80px;
+  row-gap: 20px;
+  place-items: center;
+}
+
+.points {
+  /* width: 200px; */
+  transform: translateX(-10px);
+}
+li {
+  font-size: 1rem;
+  list-style: none;
+}
