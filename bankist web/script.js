@@ -4,6 +4,7 @@ const learnmore = document.querySelector(".learnmore");
 const section1 = document.querySelector(".section-1");
 const navbar = document.querySelector(".Nav");
 const legend = document.querySelector(".legends");
+const header = document.querySelector(".header");
 
 // ///////////////////////////////////////
 // // Modal window
@@ -100,4 +101,103 @@ navbar.addEventListener("mouseover", function (e) {
 });
 navbar.addEventListener("mouseout", function (e) {
   opacity(e, 1);
+});
+
+///////////////////////////////////////
+//inplementing sticky nav
+
+const f = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+};
+const observeroption = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-90px`,
+};
+
+const observer = new IntersectionObserver(f, observeroption);
+
+observer.observe(header);
+///////////////////////////////////////
+// to reveal section while scrolling
+
+const sections = document.querySelectorAll(".section");
+const reveal = function (entries) {
+  const [entry] = entries;
+  if (entry.isIntersecting) {
+    // let id = entry.target.id
+    // console.log(id);
+    // document.getElementById(id).classList.remove("section-hidden")
+    entry.target.classList.remove("section-hidden");
+    observer.unobserve(entry.target);
+  }
+};
+
+const reoption = {
+  root: null,
+  threshold: 0.15,
+};
+
+const sectionObserver = new IntersectionObserver(reveal, reoption);
+
+sections.forEach(function (section) {
+  sectionObserver.observe(section);
+});
+
+///////////////////////////////////////
+// to reveal photos
+
+const filterRemove = function (entries) {
+  const [entry] = entries;
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener("load", function () {
+    entry.target.classList.remove("lazyImg");
+  });
+  observer.unobserve(entry.target);
+};
+
+const photobserver = new IntersectionObserver(filterRemove, {
+  root: null,
+  threshold: 0.5,
+});
+
+const photo = document.querySelectorAll(".lazyImg");
+
+photo.forEach(function (photo) {
+  photobserver.observe(photo);
+});
+
+///////////////////////////////////////
+// to implement slider
+const rightBtn = document.querySelector(".slider-right");
+const leftBtn = document.querySelector(".slider-left");
+const blog = document.querySelectorAll(".blog");
+const align = document.querySelector(".align");
+
+let x = 1;
+rightBtn.addEventListener("click", function goright() {
+  if (x < 3) {
+    align.style.transform = `translateX(${-60 * x}%)`;
+    x++;
+  } else {
+    x = 0;
+    align.style.transform = `translateX(${-60 * x}%)`;
+    x++;
+  }
+});
+leftBtn.addEventListener("click", function goleft() {
+  console.log("inside left");
+  if (x > 1) {
+    align.style.transform = `translateX(${60 * (2 - x)}%)`;
+    x--;
+  } else {
+    x = 4;
+    align.style.transform = `translateX(${60 * (2 - x)}%)`;
+    x--;
+  }
 });
