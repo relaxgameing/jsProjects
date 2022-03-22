@@ -1,0 +1,21 @@
+{
+  "name": "fortify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "controller.js",
+  "scripts": {
+    "start": "parcel index.html ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1",
+    "sass": "^1.49.0"
+  },
+  "dependencies": {
+    "fractional": "^1.0.0"
+  }
+}
