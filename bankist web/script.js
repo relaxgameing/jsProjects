@@ -44,6 +44,10 @@ let currentPara = 1;
 
 legend.addEventListener("click", function (e) {
   e.preventDefault();
+
+  console.log(e);
+  console.log(e.target);
+
   if (e.target.classList.contains("operation-btn")) {
     //getting ready for the new text
     document.querySelector(previous).classList.remove("btn-active");
@@ -52,6 +56,7 @@ legend.addEventListener("click", function (e) {
       .classList.add("hidden");
     //updating variable
     previous = "." + e.target.classList.item(1);
+    console.log(e.target.classList);
     currentPara = Number(previous.charAt(previous.length - 1));
     //updationg dom
     e.target.classList.add("btn-active");
@@ -60,6 +65,7 @@ legend.addEventListener("click", function (e) {
       .classList.remove("hidden");
   }
 });
+
 ///////////////////////////////////////
 //smooth scrolling
 
